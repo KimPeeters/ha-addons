@@ -1,0 +1,18 @@
+---
+version: 2.1.2-alpine
+slug: mosquitto
+name: Mosquitto broker
+description: An Open Source MQTT broker
+url: https://github.com/KimPeeters/ha-addons/tree/main/mosquitto
+arch:
+  - amd64
+discovery:
+  - mqtt
+image: eclipse-mosquitto
+ports:
+  1883/tcp: 1883
+services:
+  - mqtt:provide
+startup: system
+watchdog: tcp://[HOST]:1883
+init: false
